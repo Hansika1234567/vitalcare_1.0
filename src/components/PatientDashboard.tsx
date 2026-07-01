@@ -3799,27 +3799,6 @@ export default function PatientDashboard({ profile, onLogout }: PatientDashboard
                 </div>
               </div>
 
-              {/* Diastolic Blood Pressure */}
-              <div className="space-y-1">
-                <div className="flex justify-between font-black text-xs text-slate-800">
-                  <span>🩸 Blood Pressure (Diastolic)</span>
-                  <span className="text-rose-600 text-sm">{diastolic} mmHg</span>
-                </div>
-                <input
-                  type="range"
-                  min="40"
-                  max="120"
-                  value={diastolic}
-                  onChange={(e) => setDiastolic(parseInt(e.target.value))}
-                  className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
-                <div className="flex justify-between text-[10px] font-bold text-slate-400">
-                  <span>Low (&lt;60)</span>
-                  <span className="text-emerald-500">Normal (60-80)</span>
-                  <span>High (&gt;90)</span>
-                </div>
-              </div>
-
               {/* Oxygen Level SpO2 */}
               <div className="space-y-1">
                 <div className="flex justify-between font-black text-xs text-slate-800">

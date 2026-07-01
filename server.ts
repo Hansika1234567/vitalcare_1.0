@@ -5,10 +5,7 @@ import { GoogleGenAI } from "@google/genai";
 import { createServer as createViteServer } from "vite";
 import dotenv from "dotenv";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const envPath = path.join(__dirname, ".env");
+const envPath = path.join(process.cwd(), ".env");
 const envLoadResult = dotenv.config({ path: envPath });
 if (envLoadResult.error) {
   console.error("❌ Failed to load .env file at", envPath, envLoadResult.error);
@@ -17,6 +14,8 @@ if (envLoadResult.error) {
 }
 
 console.log("Current cwd:", process.cwd());
+
+const isProduction = process.env.NODE_ENV === "production" || process.argv[1]?.endsWith(path.join("dist", "server.js"));
 
 async function startServer() {
   const app = express();
